@@ -1,0 +1,39 @@
+﻿@page "/counter"
+
+<PageTitle>Compteur</PageTitle>
+
+<h1>Stock</h1>
+
+@foreach (var image in Images)
+{
+    <div>
+        <img src="@image.ImageUrl" alt="Image" width="200" />
+        <p role="status">Current count: @image.CurrentCount</p>
+        <button class="btn btn-primary" @onclick="(() => IncrementCount(image))" disabled="@image.IsFull">Add</button>
+    </div>
+}
+
+@code {
+    private class ImageInfo
+    {
+        public string ImageUrl { get; set; }
+        public int CurrentCount { get; set; }
+        public int MaxCount { get; set; }
+        public bool IsFull => CurrentCount >= MaxCount;
+    }
+
+    private List<ImageInfo> Images = new List<ImageInfo>
+    {
+        new ImageInfo { ImageUrl = "https://wzppgi.com/wp-content/uploads/2021/09/Cold-Rolled-Coil.jpg", CurrentCount = 0, MaxCount = 10 },
+        new ImageInfo { ImageUrl = "https://www.rairies.com/wp-content/uploads/2016/10/BRIQUE-ARIES-2-184x190.jpg", CurrentCount = 0, MaxCount = 5 },
+    
+    };
+
+    private void IncrementCount(ImageInfo image)
+    {
+        if (!image.IsFull)
+        {
+            image.CurrentCount++;
+        }
+    }
+}

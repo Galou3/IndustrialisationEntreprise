@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.5" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Pages\Accueil.cs" />
+      <Compile Remove="Pages\HomeController.cs" />
+      <Compile Remove="Pages\ApplicationDbContext.cs" />
+      <Compile Remove="Pages\Entrepot.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Pages\Accueil.razor" />
+      <Content Remove="Pages\Stock.razor" />
+    </ItemGroup>
+
+</Project>

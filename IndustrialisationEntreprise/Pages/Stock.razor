@@ -1,0 +1,20 @@
+﻿@page "/stock"
+
+<h3>Stock restant</h3>
+<img src="https://sc04.alicdn.com/kf/Hcb6e5fd94abc4f3d822a512675e0756bS.jpg" alt="Bobine">
+<p> Il reste @EspaceLibre d'espace dans l'entrepôt</p>
+<form asp-controller="Home" asp-action="ButtonClicked" method="post">
+    <button type="submit">Ajouter</button>
+</form>
+
+@if (EspaceLibre <= 0)
+{
+    <p>Il n'y a plus de place dans l'entrepôt</p>
+}
+
+@code {
+    private int EspaceLibre = 8;
+    
+}
+
+
